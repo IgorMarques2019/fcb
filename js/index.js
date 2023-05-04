@@ -1,10 +1,10 @@
 window.addEventListener("blur", () => {
-  document.title = 'Nova Mensagem (1)'
+  document.title = 'Novas Mensagem (1)'
   docS = 'Ui';
 })
 
 window.addEventListener("focus", () => {
-  document.title = 'Igor Marques | Facebook';
+  document.title = 'Yumi Ichigo | Facebook';
 
 })
 
