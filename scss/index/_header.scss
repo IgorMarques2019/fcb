@@ -1,0 +1,116 @@
+$dark-primary: #151515;
+$dark-secondary: #1f1f1f;
+$dark-terciary: #343434;
+$dark-fourth: #555555;
+
+$logo: 48px;
+$icon: 20px;
+$icon-color: #8d8d8d;
+
+header {
+  @include flex(flex, row, nowrap, center, space-between);
+  background-color: $dark-primary;
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+
+  .search-header {
+    max-width: 300px;
+    width: 100%;
+    @include flex(flex, row, nowrap, center, space-between);
+    img {
+      max-width: $logo;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: $dark-secondary;
+      border: none;
+      border-radius: 50px;
+      flex: 1;
+      color: #8f8f8f;
+      outline: none;
+    }
+  }
+
+  .header-nav-links {
+    @include flex(flex, row, wrap, center, space-around);
+    flex: 1;
+    max-width: 450px;
+
+    a img {
+      width: $icon;
+    }
+
+    i {
+      font-size: $icon;
+      color: $icon-color;
+    }
+  }
+
+  .settings-menu {
+    @include flex(flex, row, wrap, center, space-around);
+    gap: 20px;
+    img {
+      &:not(.profile-icon-menu) {
+        width: $icon;
+      }
+    }
+
+    i {
+      font-size: $icon;
+      color: $icon-color;
+    }
+
+    .profile-icon-menu {
+      width: 48px;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  header {
+    .search-header {
+      width: auto;
+      input {
+        display: none;
+      }
+    }
+    .header-nav-links {
+      max-width: 100%;
+      justify-content: center;
+      gap: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .menu-mobile {
+    background-color: $dark-primary;
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    .header-nav-links {
+      @include flex(flex, row, nowrap, center, space-around);
+
+      img {
+        width: 20px;
+      }
+
+      i {
+        font-size: $icon;
+        color: $icon-color;
+      }
+    }
+  }
+}

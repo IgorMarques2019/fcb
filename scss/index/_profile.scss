@@ -1,0 +1,211 @@
+body {
+  background: $dark-secondary;
+}
+$blue: #2374e1;
+
+#Profile {
+  background: $dark-secondary
+    linear-gradient(to bottom, $dark-primary, #262626 60%);
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    > img {
+      width: 100%;
+      display: block0;
+      aspect-ratio: 16/6;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+    }
+
+    .profile-info {
+      @include flex(flex, row, nowrap, flex-end, flex-start);
+      padding: 40px;
+      margin-top: -60px;
+      gap: 20px;
+      > img {
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 4px solid #f2f2f2;
+        max-width: 150px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .profile-data {
+        @include flex(flex, column, wrap, flex-start, center);
+        gap: 10px;
+        flex: 1;
+        h2 {
+          font-size: 30px;
+          color: #f2f2f2;
+        }
+
+        p {
+          color: #f2f2f2;
+        }
+
+        .friends-icons {
+          @include flex(flex, row, wrap, center, flex-start);
+
+          img {
+            margin-left: -5px;
+            display: block;
+            aspect-ratio: 1/1;
+            max-width: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.701);
+          }
+        }
+      }
+
+      .buttons-profile {
+        gap: 5px;
+        button {
+          padding: 10px 20px;
+          width: 160px;
+          border: none;
+          border-radius: 5px;
+
+          &:nth-child(1) {
+            background-color: $blue;
+            color: white;
+          }
+          &:nth-child(2) {
+            background-color: $dark-fourth;
+            color: white;
+          }
+        }
+      }
+    }
+
+    hr {
+      background-color: #2e2e2e;
+      border: none;
+      height: 1px;
+    }
+
+    .links-main-area {
+      @include flex(flex, row, nowrap, center, space-between);
+      width: 100%;
+      padding: 20px 10px;
+      gap: 10px;
+
+      .links-main {
+        @include flex(flex, row, nowrap, center, space-around);
+
+        gap: 20px;
+        a {
+          transition: 0.5s;
+          color: white;
+          border-bottom: 2px solid transparent;
+          display: inline-block;
+          padding: 10px;
+          &:hover {
+            color: $blue;
+            border-bottom: 2px solid $blue;
+          }
+        }
+      }
+
+      a#more-link {
+        color: white;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        color: rgb(56, 56, 56);
+        display: block;
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 910px) {
+  #Profile {
+    .container {
+      > img {
+        aspect-ratio: 16/6;
+      }
+      .profile-info {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 0px;
+        width: 100%;
+        @include flex(flex, column, wrap, center, center);
+
+        > img {
+          max-width: 125px;
+          position: absolute;
+          top: -50%;
+          left: 50%;
+          transform: translate(-50%, 50%);
+        }
+
+        .profile-data {
+          margin-top: 20px;
+          width: 100%;
+          align-items: center;
+        }
+      }
+
+      .links-main-area {
+        .links-main {
+          overflow-x: scroll;
+          justify-content: flex-start;
+          a {
+            display: block;
+            text-align: center;
+            min-width: 120px;
+            width: 100%;
+            font-size: 12px;
+            background-color: $dark-terciary;
+            border-radius: 5px;
+          }
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #Profile {
+    .container {
+      > img {
+        aspect-ratio: 2/1.5;
+      }
+      .profile-info {
+        padding: 20px;
+
+        > img {
+          top: -72%;
+        }
+        .profile-data {
+          h2 {
+            font-size: 20px;
+          }
+        }
+
+        .buttons-profile {
+          display: flex;
+          flex-wrap: nowrap;
+
+          button {
+            font-size: 14px;
+            flex: 1;
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+}
